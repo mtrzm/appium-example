@@ -45,8 +45,19 @@ def export_file(driver):
     time.sleep(0.5)
 
     save_panel.find_element(by=AppiumBy.XPATH, value='//XCUIElementTypeButton[@identifier="OKButton"]').click()
+    # TODO overwrite scenario not covered (file already exists)
     time.sleep(2)
     return IMAGE_1.with_suffix(".jpg")
+
+
+def take_screenshot(driver: webdriver.Remote):
+    target_path = IMAGE_1.with_name("IMAGE_1-screenshot.png")
+
+    preview_app = driver.find_element(by=AppiumBy.XPATH, value='//XCUIElementTypeWindow[@identifier="PVDocumentWindow"]')
+    image = preview_app.find_element(by=AppiumBy.XPATH, value='//XCUIElementTypeImage')
+    image.screenshot(str(target_path))
+
+    return target_path
 
 
 def start_driver():
@@ -65,7 +76,5 @@ def stop_driver(service, driver):
     service.stop()
 
 
-# service, driver = start_driver()
-# open_file(driver)
-# export_file(driver)
-# stop_driver(service, driver)
+def _dump_page_source(driver: webdriver.Remote, export_file: pathlib.Path = PAGE_SOURCE):
+    export_file.write_text(driver.page_source)

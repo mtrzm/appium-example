@@ -5,3 +5,5 @@ tmp/*
 .venv/
 .python-version
 __pycache__
+
+.vscode/
