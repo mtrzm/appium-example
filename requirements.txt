@@ -1,3 +1,5 @@
 Appium-Python-Client
+opencv-python
 pillow
 pytest
+scikit-image
