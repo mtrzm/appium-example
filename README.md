@@ -3,8 +3,8 @@
 ## Requirements
 * MacOS >=11
 * Python 3.12
-* Xcode >=13
-* Appium driver (example https://medium.com/@saurabh_koli/macos-applications-test-automation-with-appium-python-b4d31c7b4534)
+* [Appium driver](https://github.com/appium/appium-mac2-driver)
+* [Allure](https://allurereport.org/docs/gettingstarted-installation/)
 
 # Task
 

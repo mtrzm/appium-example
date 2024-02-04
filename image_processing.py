@@ -43,16 +43,16 @@ def ssim(
     contours = contours[0] if len(contours) == 2 else contours[1]
 
     # reread the image to get colored comparison
-    img2 = cv2.imread(str(image_2))
+    img1 = cv2.imread(str(image_1))
 
     for c in contours:
         area = cv2.contourArea(c)
         if area > 100:
             x, y, w, h = cv2.boundingRect(c)
-            cv2.rectangle(img2, (x, y), (x + w, y + h), COLORS.BLACK, 2)
-    
+            cv2.rectangle(img1, (x, y), (x + w, y + h), COLORS.BLACK, 2)
+
     diff = image_1.parent / f"diff-{image_1.name}-{image_2.name}.png"
-    cv2.imwrite(str(diff), img2)
+    cv2.imwrite(str(diff), img1)
     return score, diff
 
 
@@ -62,8 +62,8 @@ def get_size(im_path: Path) -> Tuple[int, int]:
 
 
 def resize_to_fit(
-        im_to_resize: Path, target_size_image: Path, output_name: Path = None
-    ) -> Path:
+    im_to_resize: Path, target_size_image: Path, output_name: Path = None
+) -> Path:
     """Resize image with preserving ICC profile.
 
     Args:
@@ -80,6 +80,6 @@ def resize_to_fit(
 
     if output_name is None:
         output_name = im_to_resize.with_stem(f"{im_to_resize.stem}-resized")
-    
+
     resized.save(output_name, icc_profile=img.info.get("icc_profile"))
     return output_name
