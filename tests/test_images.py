@@ -3,10 +3,10 @@ import pathlib
 import allure
 import pytest
 
-import image_processing
-import lib_appium
+from lib import image_processing
+from lib import lib_appium
 
-TEST_DATA = pathlib.Path("test_data")
+TEST_DATA = pathlib.Path(__file__).parent.parent / "test_data"
 IMAGE_1 = TEST_DATA / "IMAGE_1.png"
 IMAGE_2 = TEST_DATA / "IMAGE_2.png"
 EXPORTED = TEST_DATA / "IMAGE_1.jpg"

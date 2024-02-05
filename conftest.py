@@ -1,6 +1,6 @@
 import pytest
 
-import lib_appium
+from lib import lib_appium
 
 
 @pytest.fixture
