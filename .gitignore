@@ -1,4 +1,7 @@
 test_data/*
+!test_data/IMAGE_1.png
+!test_data/IMAGE_2.png
+
 .DS_Store
 tmp/*
 
