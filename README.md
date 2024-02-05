@@ -27,3 +27,9 @@ pytest tests/
 ```bash
 allure serve allure-results
 ```
+
+Example report was saved to `example-report/index.html`. Reference command is:
+
+```bash
+allure generate --single-file allure-results 
+```
