@@ -7,6 +7,8 @@ from skimage.metrics import structural_similarity
 
 
 class COLORS:
+    """RGB colors as tuples."""
+
     BLACK = (0, 0, 0)
 
 
@@ -64,7 +66,7 @@ def get_size(im_path: Path) -> Tuple[int, int]:
 def resize_to_fit(
     im_to_resize: Path, target_size_image: Path, output_name: Path = None
 ) -> Path:
-    """Resize image with preserving ICC profile.
+    """Resizes image with preserving ICC profile.
 
     Args:
         im_to_resize: path to file to be resized

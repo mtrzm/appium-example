@@ -1,24 +1,29 @@
-# Running the project
-
-## Requirements
+# Requirements
 * MacOS >=11
 * Python 3.12
 * [Appium driver](https://github.com/appium/appium-mac2-driver)
 * [Allure](https://allurereport.org/docs/gettingstarted-installation/)
 
-# Task
+# Installation
+Project preferably should be installed in [virtual environment](https://docs.python.org/3/library/venv.html).
 
-## Task
-Create a Test script:
-1. Start any Image Editing application for desktop that can import & export images with different formats (ex. Paint)
-2. Import Image: IMAGE_1
-3. Verify with image comparison that the imported Image looks correctly in the Image Editor
-4. Export the Image in JPG format to a local drive
-5. Verify that the exported image exists
-6. Verify with image comparison whether the exported image is equal to IMAGE_2 (to be failed)
-7. Generate an error report 
+```bash
+cd test_project/
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-> Optional: Visually represent the differences between the images in the error report
+# Test execution
+Current version of the project has hardcoded paths and requires to be run from main directory (`test_project`)
 
-## Requirements
-* Use Python, Pytest, and any automation tool for desktop applications
+```bash
+pytest tests/
+```
+
+# Report generation
+`Allure` will generate interactive test report
+
+```bash
+allure serve allure-results
+```
